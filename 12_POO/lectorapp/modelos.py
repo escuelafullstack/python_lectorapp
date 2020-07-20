@@ -1,3 +1,6 @@
+from datetime import datetime
+import pytz
+tz_lima  = pytz.timezone("America/Lima")
 
 class Biblioteca:
     def __init__(self,id,nombre,lector=None,libros=None):
@@ -60,6 +63,7 @@ class Libro:
     def __init__(self,id,titulo):
         self.id = id
         self.titulo = titulo
+        self.date_create = datetime.now(pytz.UTC)
 
     def __str__(self):
         return self.titulo
@@ -108,11 +112,11 @@ libro_2 = Libro(2,"Libro de aritmética")
 libro_3 = Libro(3,"Libro de Geometŕia")
 libro_4 = Libro(4,"Cuento 1")
 libro_5 = Libro(5,"Cuento 2")
-
+print(libro_1.date_create)
+print(libro_1.date_create.astimezone(tz_lima))
 
 biblioteca_1.agregar_un_libro(libro_1)
 biblioteca_1.agregar_un_libro(libro_2)
-biblioteca_1.agregar_un_libro("libro_3")
 
 # biblioteca_2.agregar_un_libro(libro_4)
 # biblioteca_2.agregar_un_libro(libro_1)
