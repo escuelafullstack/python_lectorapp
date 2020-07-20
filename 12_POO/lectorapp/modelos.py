@@ -72,10 +72,11 @@ class Libro:
         return "Libro <{},{}>".format(self.titulo,self.id)
 
 class Lector:
-    def __init__(self,id,nombre):
+    def __init__(self,id,nombre,timezone):
         self.id = id
         self.nombre = nombre
         self.bibliotecas = []
+        self.timezone = timezone
 
     def __str__(self):
         return self.nombre
